@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EmpPortal</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid" style="padding-left:0px;padding-right:0px">
+      <%= render 'layouts/navbar' %>
+      <div class="container" >
+        <%= yield %>
+      </div>
+    </div>  
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Companies</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <div class='well col-xs-12'>
+      <%= link_to 'New Company', new_company_path , :class => 'btn btn-outline-dark float-right' %>
+      <h2>Companies</h2>
+    </div>
+
+    <table class="table table-striped" style="margin-top: 20px;>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Company</th>
+          <th scope="col">Employees Count</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><%= company.name %></td>
+            <td>
+              <%= link_to company_employees_path(company) do %>
+                <span> <%= company.employees.count %> Employees </span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger btn-sm float-right" %>
+              <%= link_to 'Edit', edit_company_path(company), :class => "btn btn-outline-secondary btn-sm float-right" %>
+              <%= link_to 'Show', company, :class => "btn btn-outline-secondary btn-sm float-right" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @companies, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+  </div>
+</div>

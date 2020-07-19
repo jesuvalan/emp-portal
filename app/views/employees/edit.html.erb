@@ -1,0 +1,14 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
+    <li class="breadcrumb-item"><a href="<%= companies_path %>">Companies</a></li>
+    <li class="breadcrumb-item"><a href="<%= company_path(@employee.company) %>"><%= @employee.company.name %></a></li>
+    <li class="breadcrumb-item"><a href="<%= company_employees_path(@employee.company) %>">Employees</a></li>
+    <li class="breadcrumb-item"><a href="<%= employee_path(@employee) %>"><%= @employee.name %></a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit Employee</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-12">
+    <h2>Editing Company</h2>
+    <%= render 'form', employee: @employee %>

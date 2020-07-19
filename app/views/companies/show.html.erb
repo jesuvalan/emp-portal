@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<%= root_path %>">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Companies</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-12">
+     <div class='well col-xs-12' style='margin-top:20px'>
+      <div class="jumbotron" style="margin-top:20px;">
+        <h1 class="display-4"><%= @company.name %></h1>
+        <hr class="my-4">
+        <p class="lead">Hello, user!</p>
+        <p class="lead">This is a simple company page, a simple way to manage employee and their pay-roll.</p>
+        <p class="lead">There are <%= @company.employees.count %> employees in the company</p>
+        <hr class="my-4">
+        <%= link_to 'Employees', company_employees_path(@company), :class => 'btn btn-outline-secondary btn-lg' %> |
+        <%= link_to 'Edit', edit_company_path(@company), :class => 'btn btn-outline-secondary btn-lg' %> |
+        <%= link_to 'Delete', company_path(@company), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-outline-danger btn-lg' %>
+      </div>
+    </div>
+  </div>
+</div>
+
